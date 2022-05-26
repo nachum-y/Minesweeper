@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper</title>
+    <link rel="stylesheet" href="css/app.css">
+    <script src="https://kit.fontawesome.com/0184733c35.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+
+</head>
+
+<body onload="init()" onmousedown="mouseClicked(event)">
+    <h1 class="title">MINESWEEPER</h1>
+    <div class="top-container">
+        <ul class="justified-list">
+            <li class="jl-item">
+
+                <img onclick="init()" class="clickable" src="/img/reset.png" alt="close">
+                <img onclick="controlVul(this)" data-sound="on" class="clickable" src="/img/volume_up_white_24dp.png"
+                    alt="close">
+            </li>
+            <li class="jl-item">
+
+                <h2 class="h2-timer"><span class="timer" id="timer-display"> 000 </span> ⏰&nbsp<span class="flags">
+                        30🚩</span> </h2>
+            </li>
+            <li class="jl-item">
+                <a class="level-btn curr-level" href="#open-modal">LEVEL ⭐️⭐️</a>
+    </div>
+    </li>
+
+    </ul>
+    </div>
+    <div class="flex-container">
+        <div class="game-container">
+            <table>
+                <tbody>
+                    <tr>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="side-div">
+            <div class="lives">
+                <h2 class="side-title">LIVES</h2>
+                <div class="hearts">
+                    <i class="fa-solid fa-heart"></i>
+                    <i class="fa-solid fa-heart"></i>
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+            </div>
+            <hr>
+            <div class="hints">
+                <h2 id="hints-title">HINTS</h2>
+
+                <div class="hints-bulb">
+                    <div onclick="hintClick(this,1)" class="bulbs">
+                        <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_vt3bi9gz.json"
+                            background="transparent" speed="1.5" style="width: 80px; height: 80px;" autoplay>
+                        </lottie-player>
+                    </div>
+                    <div onclick="hintClick(this,2)" class="bulbs">
+                        <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_vt3bi9gz.json"
+                            background="transparent" speed="1.5" style="width: 80px; height: 80px;" autoplay>
+                        </lottie-player>
+                    </div>
+                    <div onclick="hintClick(this,3)" class="bulbs">
+                        <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_vt3bi9gz.json"
+                            background="transparent" speed="1.5" style="width: 80px; height: 80px;" autoplay>
+                        </lottie-player>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="sfae-click">
+                <h2 class="safe-click-title">YOU HAVE <span class="safeclick-left"></span> SAFE CLICK</h2>
+                <button onclick="safeclick()" class="safeclick-btn">
+                    🦺 SAFE CLICK<br>
+                    <span class="safeclick-active"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="container">
+        <div id="open-modal" class="modal-window">
+            <div>
+                <a href="#" title="Close" class="modal-close">Close</a>
+                <h1>Choose your level!</h1>
+                <div>
+                    <ul>
+                        <a class="level-list" href="#">
+                            <li onclick="selectLevel(1)">LEVEL⭐️ (4*4 with 2 MINES)</li>
+                        </a>
+                        <a class="level-list" href="#">
+                            <li onclick="selectLevel(2)">LEVEL⭐️⭐️ (8 * 8 with 12 MINES)</li>
+                        </a>
+                        <a class="level-list" href="#">
+                            <li onclick="selectLevel(3)">LEVEL⭐️⭐️⭐️ (12 * 12 with 30 MINES)</li>
+                        </a>
+                    </ul>
+
+                </div>
+                <lottie-player src="https://assets7.lottiefiles.com/private_files/lf30_sdbllogr.json"
+                    background="transparent" speed="1" style="width: 250px; height: 250px; margin: auto;" loop autoplay>
+                </lottie-player>
+
+
+                <!-- <span class="curr-level">LEVEL⭐️⭐️ !</span> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="open-modal-win-lose" class="modal-window">
+            <div>
+                <a href="#" title="Close" class="modal-close">Close</a>
+                <h1 class="win-lose-title">you win</h1>
+                <div class="status-wins">
+                    <div>
+                        <img class="icon-win-lose" src="/img/clock_icon.png" alt="">
+                        <h3>---</h3>
+                    </div>
+                    <div>
+                        <img class="icon-win-lose" src="/img/trophy_icon.png" alt="">
+                        <h3>---</h3>
+                    </div>
+                </div>
+                <div>
+                    <a class="play-again" href="#" onclick="init()">play again</a>
+
+                </div>
+                <div class="win-lose-animation">
+                    <lottie-player src=" https://assets8.lottiefiles.com/packages/lf20_KyIVgm.json"
+                        background="transparent" speed="1" style="width: 200px; height: 200px; margin: auto;" loop
+                        autoplay></lottie-player>
+                </div>
+
+
+                <!-- <span class="curr-level">LEVEL⭐️⭐️ !</span> -->
+            </div>
+        </div>
+    </div>
+    <footer>
+        Created by Nachum Yosef with lots of caffeine ☕️
+    </footer>
+
+    <script src="js/utils.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/lottie"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/game.js"></script>
+</body>
+
+</html>
