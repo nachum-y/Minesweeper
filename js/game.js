@@ -6,11 +6,11 @@ var columnSize = 10
 var gSound = true
 const EMPTY = ''
 const FLAG = '🚩'
-const FLAGSOUND = new Audio('/sound/sounds_flag.wav')
-const UNFLAGSOUND = new Audio('/sound/sounds_unflag.wav')
-const CLICKSOUND = new Audio('/sound/sounds_click.wav')
-const EXPLOSIONSOUND = new Audio('/sound/explosion.mp3')
-const GAMEOVERSOUND = new Audio('/sound/sounds_gameOver.wav')
+const FLAGSOUND = new Audio('sound/sounds_flag.wav')
+const UNFLAGSOUND = new Audio('sound/sounds_unflag.wav')
+const CLICKSOUND = new Audio('sound/sounds_click.wav')
+const EXPLOSIONSOUND = new Audio('sound/explosion.mp3')
+const GAMEOVERSOUND = new Audio('sound/sounds_gameOver.wav')
 var gGame = {
     isOn: false,
     shownCount: 0,
@@ -130,13 +130,13 @@ function cellClicked(cell, ev, idxI, idxJ) {
             console.log(1)
             cell.dataset.cell = TILESTATUSES.hiden
             gBoard[idxI][idxJ].status = TILESTATUSES.hiden
-            cell.innerHTML = `<img class="flag flag-hide" src="/img/red-flag.gif" alt="close">`
+            cell.innerHTML = `<img class="flag flag-hide" src="img/red-flag.gif" alt="close">`
             gFlags++
             gElFlags.innerText = gFlags + FLAG
             if (gSound) UNFLAGSOUND.play()
         } else if (gFlags !== 0) {
             if (gSound) FLAGSOUND.play()
-            cell.innerHTML = `<img class="flag" src="/img/red-flag.gif" alt="close">`
+            cell.innerHTML = `<img class="flag" src="img/red-flag.gif" alt="close">`
             cell.dataset.status = TILESTATUSES.flaged
             gBoard[idxI][idxJ].status = TILESTATUSES.flaged
             gFlags--
@@ -156,7 +156,7 @@ function cellClicked(cell, ev, idxI, idxJ) {
         if (cell.dataset.status === TILESTATUSES.mine) {
             if (gSound) EXPLOSIONSOUND.play()
             checkLose()
-            cell.innerHTML = `<img class="mine" src="/img/explosion.gif" alt="close">`
+            cell.innerHTML = `<img class="mine" src="img/explosion.gif" alt="close">`
             cell.style.backgroundColor = 'beige'
         } else {
             // cell.dataset.status = TILESTATUSES.number
@@ -269,7 +269,7 @@ function revealMineTransitions(elTds) {
     explosionInterval = setTimeout(function () {
         if (gSound) EXPLOSIONSOUND.play()
         elTds[0].style.backgroundColor = 'beige'
-        elTds[0].innerHTML = `<img class="mine" src="/img/explosion.gif" alt="close">`
+        elTds[0].innerHTML = `<img class="mine" src="img/explosion.gif" alt="close">`
         revealMineTransitions(elTds.slice(1))
     }, 150)
 
@@ -443,7 +443,7 @@ function revealHint(idxI, idxJ) {
     for (var i = 0; i < tiles.length; i++) {
         var elTd = document.querySelector(`[data-i="${tiles[i].i}"][data-j="${tiles[i].j}"]`)
         if (gBoard[tiles[i].i][tiles[i].j].mine) {
-            elTd.innerHTML = `<img class="mine" src="/img/explosion.gif" alt="close">`
+            elTd.innerHTML = `<img class="mine" src="img/explosion.gif" alt="close">`
         } else {
             gBoard[tiles[i].i][tiles[i].j].status = TILESTATUSES.number
             // cell.status = TILESTATUSES.number
