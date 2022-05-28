@@ -13,7 +13,7 @@
 
 </head>
 
-<body onload="init()" onmousedown="mouseClicked(event)">
+<body onload="init()">
     <h1 class="title">MINESWEEPER</h1>
     <div class="top-container">
         <ul class="justified-list">
@@ -55,9 +55,9 @@
             </div>
             <hr>
             <div class="hints">
-                <h2 id="hints-title">HINTS</h2>
+                <h2 class="hints-title side-title">HINTS</h2>
 
-                <div class="hints-bulb">
+                <div class="hints-bulb ">
                     <div onclick="hintClick(this,1)" class="bulbs">
                         <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_vt3bi9gz.json"
                             background="transparent" speed="1.5" style="width: 80px; height: 80px;" autoplay>
@@ -77,12 +77,21 @@
             </div>
             <hr>
             <div class="sfae-click">
-                <h2 class="safe-click-title">YOU HAVE <span class="safeclick-left"></span> SAFE CLICK</h2>
+                <h2 class="safe-click-title side-title">YOU HAVE <span class="safeclick-left"></span> SAFE CLICK</h2>
                 <button onclick="safeclick()" class="safeclick-btn">
                     🦺 SAFE CLICK<br>
                     <span class="safeclick-active"></span>
                 </button>
             </div>
+            <hr>
+            <div class="undo-click side-title">
+                <h2 class="safe-click-title"> UNDO CLICK</h2>
+                <button onclick="undoBtn()" class="safeclick-btn">
+                    ↩️ UNDO<br>
+                    <span class="undo-clicks"></span>
+                </button>
+            </div>
+            <hr>
         </div>
     </div>
 
@@ -128,11 +137,11 @@
                 <div class="status-wins">
                     <div>
                         <img class="icon-win-lose" src="img/clock_icon.png" alt="">
-                        <h3>---</h3>
+                        <h3 class="curr-core">---</h3>
                     </div>
                     <div>
                         <img class="icon-win-lose" src="img/trophy_icon.png" alt="">
-                        <h3>---</h3>
+                        <h3 clss="best-score">---</h3>
                     </div>
                 </div>
                 <div>

@@ -1,13 +1,13 @@
 'use-strict'
 
 
-
+var gTimeSecounds
 ///////           renderCell                                         ///////
-function renderCell(location, value) {
-    // Select the elCell and set the value
-    var elCell = document.querySelector(`.cell-${location.i}-${location.j}`)
-    elCell.innerHTML = value
-}
+// function renderCell(location, value) {
+//     // Select the elCell and set the value
+//     var elCell = document.querySelector(`.cell-${location.i}-${location.j}`)
+//     elCell.innerHTML = value
+// }
 ////////////////////////////////////////////////////////////////////////////
 
 
@@ -60,6 +60,7 @@ function timeToString(time) {
 
 
 function print(txt) {
+    gTimeSecounds = txt
     elTimer.innerHTML = txt
 }
 
@@ -85,42 +86,42 @@ function pause() {
 
 
 
-function countBoombAround(mat = gBoard, rowIdx, colIdx) {
-    var mines = []
-    for (var i = rowIdx - 1; i <= rowIdx + 1; i++) {
-        if (i < 0 || i > gBoard.length - 1) continue
-        // console.log('i:', i)
-        for (var j = colIdx - 1; j <= colIdx + 1; j++) {
-            if (j < 0 || j > gBoard[0].length - 1) continue
-            if (i === rowIdx && j === colIdx) continue
-            var cell = gBoard[i][j].status
-            if (cell === TILESTATUSES.mine) {
-                mines.push(gBoard[i][j])
-            }
+// function countBoombAround(mat = gBoard, rowIdx, colIdx) {
+//     var mines = []
+//     for (var i = rowIdx - 1; i <= rowIdx + 1; i++) {
+//         if (i < 0 || i > gBoard.length - 1) continue
+//         // console.log('i:', i)
+//         for (var j = colIdx - 1; j <= colIdx + 1; j++) {
+//             if (j < 0 || j > gBoard[0].length - 1) continue
+//             if (i === rowIdx && j === colIdx) continue
+//             var cell = gBoard[i][j].status
+//             if (cell === TILESTATUSES.mine) {
+//                 mines.push(gBoard[i][j])
+//             }
 
-        }
-    }
-    return mines
-}
+//         }
+//     }
+//     return mines
+// }
 
 
-function countTileAround(mat = gBoard, rowIdx, colIdx) {
-    var tile = []
-    for (var i = rowIdx - 1; i <= rowIdx + 1; i++) {
-        if (i < 0 || i > gBoard.length - 1) continue
-        // console.log('i:', i)
-        for (var j = colIdx - 1; j <= colIdx + 1; j++) {
-            if (j < 0 || j > gBoard[0].length - 1) continue
-            if (i === rowIdx && j === colIdx) continue
-            var cell = gBoard[i][j].status
-            if (cell === TILESTATUSES.hiden) {
-                tile.push(gBoard[i][j])
-            }
+// function countTileAround(mat = gBoard, rowIdx, colIdx) {
+//     var tile = []
+//     for (var i = rowIdx - 1; i <= rowIdx + 1; i++) {
+//         if (i < 0 || i > gBoard.length - 1) continue
+//         // console.log('i:', i)
+//         for (var j = colIdx - 1; j <= colIdx + 1; j++) {
+//             if (j < 0 || j > gBoard[0].length - 1) continue
+//             if (i === rowIdx && j === colIdx) continue
+//             var cell = gBoard[i][j].status
+//             if (cell === TILESTATUSES.hiden) {
+//                 tile.push(gBoard[i][j])
+//             }
 
-        }
-    }
-    return tile
-}
+//         }
+//     }
+//     return tile
+// }
 
 
 
@@ -140,7 +141,7 @@ function findEmptyPos() {
     for (var i = 0; i < gBoard.length; i++) {
         for (var j = 0; j < gBoard.length; j++) {
             var cell = gBoard[i][j]
-            if (cell.status === 'hiden') {
+            if (!cell.isShown && !cell.isMine) {
                 pos.push({ i, j })
             }
         }
