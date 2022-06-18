@@ -5,214 +5,169 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
-    <!-- FontAwesome -->
+    <title>Minesweeper</title>
+    <link rel="stylesheet" href="css/app.css">
     <script src="https://kit.fontawesome.com/0184733c35.js" crossorigin="anonymous"></script>
-    <!-- ----FontAwesome---- -->
-    <title>Meme-Generator</title>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+
 </head>
 
 <body onload="init()">
+    <h1 class="title">MINESWEEPER</h1>
+    <div class="top-container">
+        <ul class="justified-list">
+            <li class="jl-item">
 
+                <img onclick="init()" class="clickable" src="img/reset.png" alt="close">
+                <img onclick="controlVul(this)" data-sound="on" class="clickable" src="img/volume_up_white_24dp.png"
+                    alt="close">
+            </li>
+            <li class="jl-item">
 
-    <div class="grid-layout-page">
+                <h2 class="h2-timer"><span class="timer" id="timer-display"> 000 </span> ⏰&nbsp<span class="flags">
+                        30🚩</span> </h2>
+            </li>
+            <li class="jl-item">
+                <a class="level-btn curr-level" href="#open-modal">LEVEL ⭐️⭐️</a>
+    </div>
+    </li>
 
-
-
-        <header class="main-header-layout">
-            <div class="main-header-container flex align-center space-between">
-                <div class="main-logo">MG</div>
-                <div class="dropdown">
-
-                    <button class="flex language-dropdown-toggle"><img src="static/flags/Eng.svg" class="lang-flag"
-                            alt="flag">en</button>
-                    <div class="dropdown-content">
-                        <a href="#"><img src="static/flags/Heb.svg" class="lang-flag" alt="flag">he</button></a>
-                    </div>
-                </div>
-
-            </div>
-            <div class="top-nav-edit">
-            </div>
-        </header>
-
-
-        <div class="main-container clos2e">
-
-            <div class="hero-content ">
-                <h2>What meme will you design?</h2>
-                <div class="search-input">
-                    <input oninput="onSetFilterByTxt(this.value)" type="search"
-                        placeholder="Search your kewwords or meme's" value="" name="search-meme"
-                        class="search-meme-input">
-                    <span><span aria-hidden="true" class="search-icon"><svg xmlns="http://www.w3.org/2000/svg"
-                                width="24" height="24" viewBox="0 0 24 24">
-                                <path fill="currentColor"
-                                    d="M15.2 16.34a7.5 7.5 0 1 1 1.38-1.45l4.2 4.2a1 1 0 1 1-1.42 1.41l-4.16-4.16zm-4.7.16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z">
-                                </path>
-                            </svg></span></span>
-                </div>
-                <div class="popular-searches">
-                    <a onclick="enlargeSearchKey(this)" href="#" class="funny">Funny</a>
-                    <a onclick="enlargeSearchKey(this)" href="#" class="animals">Animals</a>
-                    <a onclick="enlargeSearchKey(this)" href="#" class="peoples">Peoples</a>
-                    <a onclick="enlargeSearchKey(this)" href="#" class="akward">Akward</a>
-                    <a onclick="enlargeSearchKey(this)" href="#" class="tv-show">TV Show</a>
-                </div>
-
-            </div>
-
-            <main class="main-content">
-
-            </main>
-
+    </ul>
+    </div>
+    <div class="flex-container">
+        <div class="game-container">
+            <table>
+                <tbody>
+                    <tr>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
-
-        <div class="sidebar-nav close">
-
-            <nav class="sidebar-navigation">
-                <ul>
-                    <li onclick="renderImagesGallery()" class="all-memes-tab">
-                        <span class="list-title">All memes</span>
-                       
-                        <i>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <path fill="currentColor"
-                                    d="M19.5 10V5a.5.5 0 0 0-.5-.5h-4.5V10h5zm0 1.5h-5v8H19a.5.5 0 0 0 .5-.5v-7.5zm-6.5-7H5a.5.5 0 0 0-.5.5v14c0 .28.22.5.5.5h8v-15zM5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2z">
-                                </path>
-                            </svg>
-                        </i>
-                    </li>
-                    <li onclick="tabTogalText(this)" class="active meme-page-tab">
-                        <span class="list-title">Text</span>
-                        <i>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <path fill="currentColor" fill-rule="evenodd"
-                                    d="M18 5.5h-5.25V18c0 .28.22.5.5.5h2a.75.75 0 1 1 0 1.5h-6.5a.75.75 0 1 1 0-1.5h2a.5.5 0 0 0 .5-.5V5.5H6a.5.5 0 0 0-.5.5v1.25a.75.75 0 0 1-1.5 0V5.5C4 4.67 4.67 4 5.5 4h13c.83 0 1.5.67 1.5 1.5v1.75a.75.75 0 1 1-1.5 0V6a.5.5 0 0 0-.5-.5z">
-                                </path>
-                            </svg>
-                        </i>
-                    </li>
-                    <li>
-                        <span class="list-title">projects</span>
-                        <i>
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="24" height="24" viewBox="0 0 24 24">
-                                <defs>
-                                    <path id="_775853201__a"
-                                        d="M13 7h7c1.1 0 2 .83 2 1.86v9.28c0 1.03-.9 1.86-2 1.86H4c-1.1 0-2-.83-2-1.86V8.86c0-.14.02-.28.05-.42A2 2 0 0 1 2 8V6c0-1.1.9-2 2-2h6.56a2 2 0 0 1 1.9 1.37L13 7zm-1.58 0-.39-1.16a.5.5 0 0 0-.47-.34H4a.5.5 0 0 0-.5.5v1.06c.16-.04.33-.06.5-.06h7.42zM4 8.5c-.3 0-.5.19-.5.36v9.28c0 .17.2.36.5.36h16c.3 0 .5-.19.5-.36V8.86c0-.17-.2-.36-.5-.36H4z">
-                                    </path>
-                                </defs>
-                                <use fill="currentColor" fill-rule="nonzero" xlink:href="#_775853201__a"></use>
-                            </svg>
-                        </i>
-                       
-                    </li>
-                    <li>
-                        <span class="list-title">Uploud</span>
-                        <i><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12.75 13.81v7.44a.75.75 0 1 1-1.5 0v-7.4L9.49 15.6a.75.75 0 1 1-1.06-1.06l2.35-2.36c.68-.68 1.8-.68 2.48 0l2.35 2.36a.75.75 0 1 1-1.06 1.06l-1.8-1.8zM9 18v1.5H6.75v-.01A5.63 5.63 0 0 1 5.01 8.66a6 6 0 0 1 11.94-.4 5.63 5.63 0 0 1 .3 11.23v.01H15V18h1.88a4.12 4.12 0 1 0-1.5-7.97A4.51 4.51 0 0 0 11 4.5a4.5 4.5 0 0 0-4.43 5.29 4.13 4.13 0 0 0 .68 8.2V18H9z"></path></svg></i>
-                        
-                    </li>
-                    <li>
-                        <span class="list-title">Share</span>
-                     <i><svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 11.75V19a.5.5 0 0 0 .5.5h14a.5.5 0 0 0 .5-.5v-7.25a.75.75 0 1 1 1.5 0V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7.25a.75.75 0 1 1 1.5 0Zm8.323-6.19v9.69a.75.75 0 0 1-1.5 0l-.001-9.69-3.037 3.215a.751.751 0 0 1-1.062-1.06l4.318-4.495a.751.751 0 0 1 1.062 0l4.18 4.495a.749.749 0 1 1-1.06 1.06l-2.9-3.216Z" fill="currentColor" fill-rule="nonzero"></path></svg></i>
-                    
-                    </li>
-                </ul>
-            </nav>
-
-            <div class="sidebar-navigation-content">
-                <div class="tab-content">
-                    <label class="text-input-container" for="text-input">
-                        <strong class="tab-content-title">Edit text</strong>
-                        <!-- <input class="text-input" type="text"> -->
-                        <input type="text" placeholder="Text Here" class="input-txt" id="input-txt-selected"
-                            oninput="onTextChange(this)">
-                    </label>
-                    <strong class="tab-content-title">Click text to add to page</strong>
-                    <div onclick="onAddElement(this,60,2)" class="add-a-heading">Add a heading</div>
-                    <div onclick="onAddElement(this,40,1)" class="add-a-subheading">Add a subheading</div>
-                    <div onclick="onAddElement(this,20,1)" class="add-a-little-text">Add a little bit of body text</div>
+        <div class="side-div">
+            <div class="lives">
+                <h2 class="side-title">LIVES</h2>
+                <div class="hearts">
+                    <i class="fa-solid fa-heart"></i>
+                    <i class="fa-solid fa-heart"></i>
+                    <i class="fa-solid fa-heart"></i>
                 </div>
             </div>
-        </div>
+            <hr>
+            <div class="hints">
+                <h2 class="hints-title side-title">HINTS</h2>
 
-
-        <!-- /end sidenavbar -->
-        <div class="top-nav-e2dit">
-            <!--             
-            <div class="controller-top-bar">
-                <div class="grid-controller">
-                    <div class="font-selctor ">
-                        <select>
-                            <option>Impact</option>
-                            <option>No external background image</option>
-                            <option>No wrapper</option>
-                        </select>
+                <div class="hints-bulb ">
+                    <div onclick="hintClick(this,1)" class="bulbs">
+                        <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_vt3bi9gz.json"
+                            background="transparent" speed="1.5" style="width: 80px; height: 80px;" autoplay>
+                        </lottie-player>
                     </div>
-                    <div class="size-selecor">
-                        <div onclick="onEnlargeElement(this)" class="btn-controller enlarge-element size-btn"><i
-                                class="fa-solid fa-plus"></i></div>
-                        <span><input class="font-size-selector" type="number" value="16"></span>
-                        <div onclick="onReduceElement(this)" class="btn-controller reduce-element size-btn"><i
-                                class="fa-solid fa-minus"></i></div>
+                    <div onclick="hintClick(this,2)" class="bulbs">
+                        <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_vt3bi9gz.json"
+                            background="transparent" speed="1.5" style="width: 80px; height: 80px;" autoplay>
+                        </lottie-player>
                     </div>
-                    <div class="btn-controller txt-stroke"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                        height="24" viewBox="0 0 24 24">
-                        <path fill="currentColor" fill-rule="evenodd"
-                            d="M7.08 4.72h4.44c2.03 0 3.5.3 4.41.87.92.57 1.37 1.49 1.37 2.75 0 .85-.2 1.55-.6 2.1-.4.54-.93.87-1.6.98v.1c.91.2 1.56.58 1.96 1.13.4.56.6 1.3.6 2.2 0 1.31-.47 2.33-1.4 3.06A6.1 6.1 0 0 1 12.41 19H7.08V4.72zm3.03 5.66h1.75c.82 0 1.42-.13 1.79-.38.36-.26.55-.68.55-1.26 0-.55-.2-.94-.6-1.18a3.86 3.86 0 0 0-1.9-.36h-1.6v3.18zm0 2.4v3.72h1.97c.83 0 1.45-.16 1.84-.48.4-.32.6-.8.6-1.46 0-1.19-.85-1.78-2.54-1.78h-1.87z">
-                        </path>
-                    </svg></div>
-                    <div class="selcet-line-up-down">
-
-                        <div onclick="onlineUpElement(this)" class="btn-controller line-up"><i
-                                class="fa-solid fa-up-long"></i></div>
-                        <div onclick="onlineDownElement(this)" class="btn-controller line-down"><i
-                                class="fa-solid fa-arrow-down-long"></i></div>
+                    <div onclick="hintClick(this,3)" class="bulbs">
+                        <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_vt3bi9gz.json"
+                            background="transparent" speed="1.5" style="width: 80px; height: 80px;" autoplay>
+                        </lottie-player>
                     </div>
-                    <div onclick="onAddElement(this)" class="btn-controller add-txt"><i class="fa-solid fa-plus"></i>
-                    </div>
-                    <div class="align-element">
-                        <div onclick="onAlignLeftElement(this)" class="btn-controller txt-align-left"><i
-                                class="fa-solid fa-align-left"></i></div>
-                        <div onclick="onAlignCenterElement(this)" class="btn-controller txt-align-center"><i
-                                class="fa-solid fa-align-justify"></i></div>
-                        <div onclick="onAlignRightElement(this)" class="btn-controller txt-align-right"><i
-                                class="fa-solid fa-align-right"></i></div>
-                    </div>
-                    <div onclick="colorPickerClick()" class="color-picker">
-                        <input id="font-color-button" type="color" id="pick-color" name="pick-color" style="display:none;" value="#e66465" oninput="onColorChange(this)">
-                        <div class="a-color">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M11 2 5.5 16h2.25l1.12-3h6.25l1.12 3h2.25L13 2h-2zm-1.38 9L12 4.67 14.38 11H9.62z" fill="currentColor"></path></svg>
-                        </div>
-                            <div class="color-picker-under"></div>
-                    </div>
-              
-                    <div onclick="onRemoveElement(this)" class="btn-controller remove-element"><i
-                            class="fa-solid fa-trash-can"></i></div>
-                </div> -->
+                </div>
+            </div>
+            <hr>
+            <div class="sfae-click">
+                <h2 class="safe-click-title side-title">YOU HAVE <span class="safeclick-left"></span> SAFE CLICK</h2>
+                <button onclick="safeclick()" class="safeclick-btn">
+                    🦺 SAFE CLICK<br>
+                    <span class="safeclick-active"></span>
+                </button>
+            </div>
+            <hr>
+            <div class="undo-click side-title">
+                <h2 class="safe-click-title"> UNDO CLICK</h2>
+                <button onclick="undoBtn()" class="safeclick-btn">
+                    ↩️ UNDO<br>
+                    <span class="undo-clicks"></span>
+                </button>
+            </div>
+            <hr>
         </div>
     </div>
 
+
+
+
+
+
+    <div class="container">
+        <div id="open-modal" class="modal-window">
+            <div>
+                <a href="#" title="Close" class="modal-close">Close</a>
+                <h1>Choose your level!</h1>
+                <div>
+                    <ul>
+                        <a class="level-list" href="#">
+                            <li onclick="selectLevel(1)">LEVEL⭐️ (4*4 with 2 MINES)</li>
+                        </a>
+                        <a class="level-list" href="#">
+                            <li onclick="selectLevel(2)">LEVEL⭐️⭐️ (8 * 8 with 12 MINES)</li>
+                        </a>
+                        <a class="level-list" href="#">
+                            <li onclick="selectLevel(3)">LEVEL⭐️⭐️⭐️ (12 * 12 with 30 MINES)</li>
+                        </a>
+                    </ul>
+
+                </div>
+                <lottie-player src="https://assets7.lottiefiles.com/private_files/lf30_sdbllogr.json"
+                    background="transparent" speed="1" style="width: 250px; height: 250px; margin: auto;" loop autoplay>
+                </lottie-player>
+
+
+                <!-- <span class="curr-level">LEVEL⭐️⭐️ !</span> -->
+            </div>
+        </div>
     </div>
-    <script src="js/main.js"></script>
-    <!-- services -->
-    <script src="js/services/util.service.js"></script>
-    <script src="js/services/images.service.js"></script>
-    <script src="js/services/meme.service.js"></script>
-    <script src="js/services/main.service.js"></script>
-    <script src="js/services/storage.service.js"></script>
-    <script src="js/services/canvas.service.js"></script>
-    <!-- contrellers -->
-    <script src="js/controller/gallery.controller.js"></script>
-    <script src="js/controller/meme.controller.js"></script>
-    <script src="js/controller/canvas.controller.js"></script>
+
+    <div class="container">
+        <div id="open-modal-win-lose" class="modal-window">
+            <div>
+                <a href="#" title="Close" class="modal-close">Close</a>
+                <h1 class="win-lose-title">you win</h1>
+                <div class="status-wins">
+                    <div>
+                        <img class="icon-win-lose" src="img/clock_icon.png" alt="">
+                        <h3 class="curr-core">---</h3>
+                    </div>
+                    <div>
+                        <img class="icon-win-lose" src="img/trophy_icon.png" alt="">
+                        <h3 clss="best-score">---</h3>
+                    </div>
+                </div>
+                <div>
+                    <a class="play-again" href="#" onclick="init()">play again</a>
+
+                </div>
+                <div class="win-lose-animation">
+                    <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_KyIVgm.json"
+                        background="transparent" speed="1" style="width: 200px; height: 200px; margin: auto;" loop
+                        autoplay></lottie-player>
+                </div>
 
 
+                <!-- <span class="curr-level">LEVEL⭐️⭐️ !</span> -->
+            </div>
+        </div>
+    </div>
+    <footer>
+        Created by Nachum Yosef with lots of caffeine ☕️
+    </footer>
+
+    <script src="js/utils.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/lottie"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/game.js"></script>
 </body>
 
 </html>
-
-</html>
-</body>
