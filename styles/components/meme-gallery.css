@@ -1,0 +1,32 @@
+.meme-gallery {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.meme-gallery img:hover {
+    transform: scale(1.05);
+}
+
+.meme-gallery img {
+    cursor: pointer;
+}
+
+
+.main-img-gallery {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+    gap: 1em;
+    margin-bottom: 1em;
+}
+
+.main-img-gallery article {
+    position: relative;
+}
+
+.main-img-gallery span {
+    position: absolute;
+    top: 0.2em;
+    left: 0.2em;
+    background-color: aliceblue;
+    padding: 0.2em 0.4em;
+}

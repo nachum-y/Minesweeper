@@ -1,0 +1,25 @@
+/* impact */
+@font-face {
+    font-family: 'impact', sans-serif;
+    src: url(/fonts/impact/impact.ttf);
+}
+
+/* Font Awesome */
+@font-face {
+    font-family: 'Font Awesome 6 Free';
+    src: url(/fonts/FontAwesome/fa-solid-900.ttf);
+}
+
+/* Oswald */
+@font-face {
+    font-family: 'Oswald', sans-serif;
+    src: url(/fonts/Oswald/Oswald-Regular.ttf);
+}
+
+
+/* Teko */
+@font-face {
+    font-family: 'Teko', sans-serif;
+    src: url(./fonts/Teko/Teko-Regular.ttf);
+}
+

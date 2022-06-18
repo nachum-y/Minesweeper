@@ -1,0 +1,67 @@
+.hero-content {
+    padding: 1em 4em ;
+    /* background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1); */
+    background-image: linear-gradient(to right bottom, #d16ba5, #b673b9, #957bc5, #7082c8, #4887c3, #2f90c4, #1398c2, #009fbd, #00aec1, #00bcbd, #00cab1, #06d6a0);
+    margin: 2em auto;
+    border-radius: 5px;
+    max-width: 1045px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    /* max-height: 167px; */
+    /* position: sticky; */
+}
+
+.hero-content h2{
+    color: #fff;
+    text-transform: uppercase;
+}
+.search-meme-input{
+    display: flex;
+    padding: 0.7em;
+    width: 98%;
+    margin-bottom: 1em;
+
+    padding-inline-start: 2.5em;
+    
+
+}
+
+.search-input{
+    position: relative;
+}
+
+
+.search-icon{
+ position: absolute;
+ top: 0.4em;   
+ left: 0.5em;
+}
+
+.popular-searches{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #fff;
+    text-shadow: 1px 1px 3px black;
+}
+
+.funny{
+    font-size: 1.2em;
+}
+
+.tv-show{
+    font-size: 1.3em;
+}
+
+.animals{
+    font-size: 1.5em;
+}
+
+.popular-searches a{
+    color: #fff;
+    transition: transform 0.1s;
+
+}
+
+.popular-searches a:hover{
+    transform: scale(1.05);
+}

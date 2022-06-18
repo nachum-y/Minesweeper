@@ -1,0 +1,124 @@
+.top-nav-edit {
+    position: absolute;
+    top: 4em;
+    /* left: 390px; mq */
+    left: 0;
+    width: 100%;
+    height: 4rem;
+
+}
+
+.controller-top-bar {
+    position: absolute;
+    left: 0;
+    display: block;
+    /* width: calc(100% - 420px);mq */
+    width: 100%;
+    border-bottom: 1px solid rgba(57, 76, 96, 0.15);
+    background-color: #fff;
+
+}
+
+
+
+.grid-controller {
+    padding: 0.5em;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 0.5em;
+    z-index: 20;
+    align-items: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    border-radius: none;
+
+
+}
+
+
+.size-selecor {
+    display: flex;
+    grid-auto-flow: column dense;
+    gap: 0;
+}
+
+.grid-controller select {
+    padding: 0.4em;
+    width: 7em;
+
+}
+.size-selecor input{
+    text-align: center;
+}
+.font-size-selector {
+    min-width: 3em;
+    width: 3em;
+    padding: 0.4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.size-btn {
+    border: 1px solid;
+    border-radius: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5em;
+    flex-shrink: 2;
+
+}
+
+.selcet-line-up-down {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.selcet-line-up-down>* {
+    margin-inline-end: 1em;
+}
+
+.align-element {
+    display: flex;
+    justify-content: space-evenly;
+    margin-inline-end: 2%;
+    flex-grow: 1;
+}
+
+.align-element>* {
+    margin-inline-end: 1em;
+}
+
+.a-color {
+    margin: 0;
+    padding: 0;
+    margin-bottom: -0.5em;
+}
+
+.color-picker-under {
+    width: 1.5em;
+    height: 2.5px;
+    padding: 1px;
+    border: 1px solid;
+    background-image: url("https://i.ibb.co/hCtXcmG/color-picker.webp")
+}
+
+
+.color-picker {
+    margin-inline: 1em;
+}
+
+.element-style-topbar {
+    display: flex;
+    flex-grow: 2;
+}
+
+
+
+
+@media screen and (min-width: 1200px) {}

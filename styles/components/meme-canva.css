@@ -1,0 +1,61 @@
+.square-around-element {
+    color: transparent;
+    outline: 3px solid black;
+    pointer-events: none;
+    visibility: hidden;
+    /* position: relative; */
+    /* position: absolute; */
+
+}
+
+.resize-element {
+    position: absolute;
+    bottom: -0.3em;
+    right: -0.3em;
+    color: #98C1D9;
+    z-index: 999;
+}
+
+.resize-element:before {
+    color: #98C1D9;
+    font-family: 'Font Awesome 6 Free';
+    font-size: 0.5em;
+    font-weight: 900;
+    text-shadow: 1px 1px 5px black;
+    transform: scaleX(-1);
+    content: '\f424';
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-end;
+    align-items: flex-start;
+    bottom: 100;
+    text-align: left;
+
+}
+
+
+.main-meme {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #ededed;
+    align-items: center;
+
+}
+
+.canva-container {
+    height: fit-content;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+#canvas {
+    border: 1px solid;
+}
+
+.canva-selector{
+    position: relative;
+}

@@ -1,0 +1,29 @@
+  <div class="canvas-container">
+        <canvas id="canvas" height="450" width="450">
+        </canvas>
+        <div class="buttons">
+            <button onclick="setShape('triangle')">Triangle</button>
+            <button onclick="setShape('rect')">Rect</button>
+            <button onclick="setShape('text')">Text</button>
+            <button onclick="setShape('line')">Line</button>
+            <button onclick="clearCanvas()">Clear</button>
+            <label for="text">
+                <input oninput="onTextInput(this)" id="text" type="text" value="Text Demo"
+                    placeholder="Enter Your TEXT HERE">
+            </label>
+            <input type="color" name="set-color" value="#e66465">
+            <label for="head">Color</label>
+
+            <!-- when click the link run downloadCanvas -->
+        </div>
+    </div>
+    <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a>
+    <div class="share-container"></div>
+    <div class="user-msg"></div>
+    <a href="#" class="btn" onclick="shareImg(this)" download="my-img.jpg">Share jpeg</a>
+    <input
+    type="file"
+    class="file-input btn"
+    name="image"
+    onchange="onImgInput(event)"
+  />

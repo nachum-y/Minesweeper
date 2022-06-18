@@ -1,0 +1,12 @@
+.meme-controller {
+    flex-grow: 1;
+    margin-inline-start: 1em;
+}
+
+.top-controller {
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: 1px solid;
+}
+
+
